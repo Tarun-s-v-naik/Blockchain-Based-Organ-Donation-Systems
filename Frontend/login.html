@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --border-color: #dee2e6;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .login-header p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-text);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember-me input {
+            margin-right: 0.5rem;
+        }
+
+        .forgot-password a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-button:hover {
+            background-color: #3a5bd9;
+            transform: translateY(-2px);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .register-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .social-login {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .social-login p {
+            position: relative;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .social-login p::before,
+        .social-login p::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .social-login p::before {
+            left: 0;
+        }
+
+        .social-login p::after {
+            right: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon.google {
+            color: #DB4437;
+        }
+
+        .social-icon.facebook {
+            color: #4267B2;
+        }
+
+        .social-icon.twitter {
+            color: #1DA1F2;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #e0e0e0;
+                --light-text: #a0a0a0;
+                --border-color: #333;
+                --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            
+            body {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            }
+            
+            .login-container {
+                background-color: #1e1e1e;
+            }
+            
+            .form-group input {
+                background-color: #2d2d2d;
+                color: var(--text-color);
+            }
+            
+            .social-icon {
+                background-color: #2d2d2d;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .login-container {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+            
+            .login-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome Back</h1>
+            <p>Please enter your credentials to login</p>
+        </div>
+        
+        <form id="loginForm" action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username or Email</label>
+                <div class="input-with-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-with-icon">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+            </div>
+            
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="/forgot-password">Forgot Password?</a>
+                </div>
+            </div>
+            
+            <button type="submit" class="login-button">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+        
+        <div class="social-login">
+            <p>Or login with</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
+                <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        
+        <div class="register-link">
+            Don't have an account? <a href="/register">Register here</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Form validation
+            if (!username.trim()) {
+                showError('username', 'Username cannot be empty');
+                return;
+            }
+            
+            if (!password.trim()) {
+                showError('password', 'Password cannot be empty');
+                return;
+            }
+            
+            // Here you would typically send the data to your backend
+            console.log('Login attempt:', { username, password });
+            
+            // Show loading state
+            const loginButton = document.querySelector('.login-button');
+            const originalText = loginButton.innerHTML;
+            loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+            loginButton.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Reset button state
+                loginButton.innerHTML = originalText;
+                loginButton.disabled = false;
+                
+                // For demonstration purposes only
+                // In a real application, you would validate credentials on the server
+                alert('Login functionality would be implemented here');
+                
+                // Uncomment this to actually submit the form to the backend
+                // this.submit();
+            }, 1500);
+        });
+        
+        function showError(inputId, message) {
+            const input = document.getElementById(inputId);
+            input.classList.add('error');
+            
+            // Remove any existing error message
+            const existingError = input.parentElement.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Add new error message
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            errorElement.style.color = 'red';
+            errorElement.style.fontSize = '0.8rem';
+            errorElement.style.marginTop = '0.25rem';
+            errorElement.textContent = message;
+            
+            input.parentElement.appendChild(errorElement);
+            
+            // Clear error after 3 seconds
+            setTimeout(() => {
+                input.classList.remove('error');
+                errorElement.remove();
+            }, 3000);
+        }
+        
+        // Toggle password visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordField = document.getElementById('password');
+            const togglePassword = document.createElement('i');
+            togglePassword.className = 'fas fa-eye toggle-password';
+            togglePassword.style.position = 'absolute';
+            togglePassword.style.right = '10px';
+            togglePassword.style.top = '50%';
+            togglePassword.style.transform = 'translateY(-50%)';
+            togglePassword.style.cursor = 'pointer';
+            togglePassword.style.color = 'var(--light-text)';
+            
+            passwordField.parentElement.appendChild(togglePassword);
+            
+            togglePassword.addEventListener('click', function() {
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    togglePassword.className = 'fas fa-eye-slash toggle-password';
+                } else {
+                    passwordField.type = 'password';
+                    togglePassword.className = 'fas fa-eye toggle-password';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
