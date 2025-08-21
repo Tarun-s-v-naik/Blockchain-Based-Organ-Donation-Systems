@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav');
+=======
+
+document.addEventListener("DOMContentLoaded", () => {
+    const members = document.querySelectorAll(".team-card");
+>>>>>>> 59af871 (updated Changes)
     
     mobileMenuBtn.addEventListener('click', function() {
         nav.classList.toggle('active');
@@ -27,6 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+<<<<<<< HEAD
+=======
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const members = document.querySelectorAll(".team-card");
+>>>>>>> 59af871 (updated Changes)
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

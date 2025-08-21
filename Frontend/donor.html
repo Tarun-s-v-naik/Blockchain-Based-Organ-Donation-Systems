@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -356,4 +357,364 @@
 
     <script src="donor.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeShare - Organ Donation Pledge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="donor.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#home" target="_blank" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about"  target="_blank" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#contact"  target="_blank" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="header">
+            <h1><i class="fas fa-heartbeat"></i> LifeShare</h1>
+            <p>Become an organ donor and save lives</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+            <div class="progress-step active" data-title="Personal"></div>
+            <div class="progress-step" data-title="Address"></div>
+            <div class="progress-step" data-title="Emergency"></div>
+            <div class="progress-step" data-title="Organs"></div>
+            <div class="progress-step" data-title="Consent"></div>
+            <div class="progress-step" data-title="Preview"></div>
+        </div>
+
+        <form id="donor-form">
+            <div class="form-container">
+                <!-- Step 1: Personal Details -->
+                <div class="form-step active" id="step-1">
+                    <h2>Personal Information</h2>
+                    <p class="field-info">Fields marked with * are required</p>
+                    
+                    <div class="form-group">
+                        <label for="fullName" class="required">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Enter your full name as on Aadhar card" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="dob" class="required">Date of Birth</label>
+                            <input type="date" id="dob" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="required">Gender</label>
+                            <select id="gender" class="form-control" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="required">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="aadhar" class="required">Aadhar Card Number</label>
+                        <input type="text" id="aadhar" class="form-control" pattern="[0-9]{12}" placeholder="12-digit Aadhar number" required>
+                        <p class="field-info">12-digit number without spaces</p>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <div></div>
+                        <button type="button" class="btn btn-next" onclick="nextStep(1)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Address Details -->
+                <div class="form-step" id="step-2">
+                    <h2>Address Information</h2>
+                    <p class="field-info">Fields marked with * are required</p>
+                    
+                    <div class="form-group">
+                        <label for="address" class="required">Street Address</label>
+                        <input type="text" id="address" class="form-control" placeholder="House number, street, area" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="city" class="required">City</label>
+                            <input type="text" id="city" class="form-control" placeholder="Your city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="required">State</label>
+                            <input type="text" id="state" class="form-control" placeholder="Your state" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pincode" class="required">Pincode</label>
+                        <input type="text" id="pincode" class="form-control" pattern="[0-9]{6}" placeholder="6-digit pincode" required>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-prev" onclick="prevStep(2)">Previous</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(2)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Emergency Contact -->
+                <div class="form-step" id="step-3">
+                    <h2>Emergency Contact</h2>
+                    <p class="field-info">Fields marked with * are required</p>
+                    
+                    <div class="form-group">
+                        <label for="emergencyName" class="required">Full Name</label>
+                        <input type="text" id="emergencyName" class="form-control" placeholder="Emergency contact's full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyPhone" class="required">Phone Number</label>
+                        <input type="tel" id="emergencyPhone" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyRelation" class="required">Relationship</label>
+                        <select id="emergencyRelation" class="form-control" required>
+                            <option value="">Select Relationship</option>
+                            <option value="parent">Parent</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="child">Child</option>
+                            <option value="grandparent">Grandparent</option>
+                            <option value="friend">Friend</option>
+                            <option value="relative">Relative</option>
+                            <option value="guardian">Guardian</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyAddress" class="required">Street Address</label>
+                        <input type="text" id="emergencyAddress" class="form-control" placeholder="House number, street, area" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="emergencyCity" class="required">City</label>
+                            <input type="text" id="emergencyCity" class="form-control" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyState" class="required">State</label>
+                            <input type="text" id="emergencyState" class="form-control" placeholder="State" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyPincode" class="required">Pincode</label>
+                        <input type="text" id="emergencyPincode" class="form-control" pattern="[0-9]{6}" placeholder="6-digit pincode" required>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-prev" onclick="prevStep(3)">Previous</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(3)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Organ Selection -->
+                <div class="form-step" id="step-4">
+                    <h2>Organ Donation Selection</h2>
+                    <p class="field-info">Select organs you wish to donate</p>
+                    
+                    <div class="form-group">
+                        <label>Select organs you wish to donate:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="heart" name="organs" value="heart">
+                                <label for="heart">Heart</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="liver" name="organs" value="liver">
+                                <label for="liver">Liver</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="kidneys" name="organs" value="kidneys">
+                                <label for="kidneys">Kidneys</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lungs" name="organs" value="lungs">
+                                <label for="lungs">Lungs</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pancreas" name="organs" value="pancreas">
+                                <label for="pancreas">Pancreas</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="intestines" name="organs" value="intestines">
+                                <label for="intestines">Intestines</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="corneas" name="organs" value="corneas">
+                                <label for="corneas">Corneas</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skin" name="organs" value="skin">
+                                <label for="skin">Skin</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="bone" name="organs" value="bone">
+                                <label for="bone">Bone</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="any" name="organs" value="any">
+                                <label for="any">Any part of the body</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-prev" onclick="prevStep(4)">Previous</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(4)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Consent -->
+                <div class="form-step" id="step-5">
+                    <h2>Consent Declaration</h2>
+                    
+                    <div class="consent-container">
+                        <h3>Organ Donation Consent Agreement</h3>
+                        
+                        <div class="consent-text">
+                            <p>I, the undersigned, hereby voluntarily express my wish to donate my organs and tissues upon my death for the purpose of transplantation, therapy, research, and education.</p>
+                            
+                            <p>I understand that:</p>
+                            <ol>
+                                <li>My decision to become an organ donor is entirely voluntary</li>
+                                <li>I can withdraw my consent at any time by contacting the registry</li>
+                                <li>My donation may save or significantly improve the lives of others</li>
+                                <li>No monetary payment will be received for my donation</li>
+                                <li>Medical professionals will determine the suitability of my organs for transplantation at the time of my death</li>
+                                <li>My decision does not alter the medical care I will receive</li>
+                            </ol>
+                            
+                            <p>I authorize the organization to share my donation decision with authorized healthcare professionals and registries as needed to facilitate my donation wishes.</p>
+                            
+                            <p>I affirm that the information I have provided is true and accurate to the best of my knowledge.</p>
+                        </div>
+                        
+                        <div class="consent-checkbox">
+                            <input type="checkbox" id="consentAgree" required>
+                            <label for="consentAgree" class="required">I have read and understood the consent agreement and wish to proceed with organ donation registration</label>
+                        </div>
+                        
+                        <div class="consent-checkbox">
+                            <input type="checkbox" id="infoAccuracy" required>
+                            <label for="infoAccuracy" class="required">I confirm that all information provided is accurate to the best of my knowledge</label>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-prev" onclick="prevStep(5)">Previous</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(5)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Preview -->
+                <div class="form-step" id="step-6">
+                    <h2>Preview Your Information</h2>
+                    <p class="field-info">Please review all information before submitting</p>
+                    
+                    <div class="preview-container">
+                        <div class="preview-item">
+                            <div class="preview-label">Full Name</div>
+                            <div class="preview-value" id="preview-name"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Date of Birth</div>
+                            <div class="preview-value" id="preview-dob"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Gender</div>
+                            <div class="preview-value" id="preview-gender"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Email</div>
+                            <div class="preview-value" id="preview-email"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Phone</div>
+                            <div class="preview-value" id="preview-phone"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Aadhar Number</div>
+                            <div class="preview-value" id="preview-aadhar"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Address</div>
+                            <div class="preview-value" id="preview-address"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Emergency Contact</div>
+                            <div class="preview-value" id="preview-emergency"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Organs to Donate</div>
+                            <div class="preview-value" id="preview-organs"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-prev" onclick="prevStep(6)">Previous</button>
+                        <button type="button" class="btn btn-submit" onclick="submitForm()">Submit Pledge</button>
+                    </div>
+                </div>
+
+                <!-- Step 7: Thank You -->
+                <div class="form-step" id="step-7">
+                    <div class="thank-you">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>Thank You for Your Pledge!</h2>
+                        <p>Your organ donor registration has been successfully submitted.</p>
+                        
+                        <div class="donor-card">
+                            <h3><i class="fas fa-heart"></i> Organ Donor Card</h3>
+                            <div class="card-content">
+                                <div id="card-name"></div>
+                                <div class="card-id">Aadhar ID: <span id="card-aadhar"></span></div>
+                                <div>Registered Organ Donor</div>
+                                <div id="card-organs" style="margin-top: 15px;"></div>
+                            </div>
+                            <div class="card-footer">
+                                In case of emergency, please notify your emergency contact
+                            </div>
+                        </div>
+                        
+                        <p>Your donor information has been recorded on the blockchain.</p>
+                        <button type="button" class="btn btn-submit" onclick="printCard()">
+                            <i class="fas fa-print"></i> Print Donor Card
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="donor.js"></script>
+</body>
+>>>>>>> 59af871 (updated Changes)
 </html>

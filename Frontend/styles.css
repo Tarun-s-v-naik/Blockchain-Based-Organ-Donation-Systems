@@ -345,12 +345,12 @@ nav ul li a:hover::after {
     gap: 30px;
 }
 
-.team-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    
+.team-card img {
+    width: 150px;  /* Adjust based on requirement */
+    height: 180px;
+    border-radius: 50%;  /* Makes the image circular */
+    object-fit: cover;
+    border: 2px solid #fff;
 }
 
 /* Contact Section */
