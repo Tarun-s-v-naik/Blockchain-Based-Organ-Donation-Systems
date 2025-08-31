@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function(){
+        emailjs.init("iQ4pV_02gdfAbY8e0"); 
+        })();
+    </script>
+
 </head>
 <body>
     <header>
@@ -131,7 +138,7 @@
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="Abhi 2025-04-04 at 09.53.52_e2414b42.jpg" alt="Team Member">
+                    <img src="abhijith.jpg" alt="Team Member">
                     <h3>V Sai Abhijith</h3>
                     <p>Operations Manager</p>
                     <div class="social-icons">
@@ -164,7 +171,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>support@organdonation.com</p>
+                            <p>blockchain.organdonation@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -184,10 +191,7 @@
                     <div class="contact-social">
                         <h4>Follow Us</h4>
                         <div class="social-icons">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -198,41 +202,45 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
-                                <input type="text" id="name" placeholder="Enter your name" required>
+                                <input type="text" name="name" placeholder="Enter your name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Your Email</label>
-                                <input type="email" id="email" placeholder="Enter your email" required>
+                                <input type="email" name="email" placeholder="Enter your email" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Enter subject">
+                            <input type="text" name="subject" placeholder="Enter subject">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="Type your message here..." required></textarea>
+                            <textarea name="message" rows="5" placeholder="Type your message here..." required></textarea>
                         </div>
                         <button type="submit" class="btn primary-btn">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
-                </div>
+                </div>  
             </div>
         </div>
     </section>
     
-    <div class="map-section">
+    <section id="map" class="map-section">
+    <h2>Bangalore Location</h2>
+    <div class="map-container">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sin!4v1628015517736!5m2!1sen!2sin" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.939588356779!2d77.5945622!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670eaaa6d6d%3A0x7e5d1f4dcb23d4d!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1694259208943!5m2!1sen!2sin" 
             width="100%" 
-            height="450" 
+            height="600" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy"
-            title="Our Location">
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
+</section>
+
     
     <footer>
         <div class="footer-top">
@@ -245,10 +253,7 @@
                         </div>
                         <p>Revolutionizing organ donation through secure blockchain technology, ensuring transparency and trust in the donation process.</p>
                         <div class="social-icons">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     
@@ -261,31 +266,6 @@
                             <li><a href="#team"><i class="fas fa-chevron-right"></i> Team</a></li>
                             <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                         </ul>
-                    </div>
-                    
-                    <div class="footer-links">
-                        <h3>Useful Links</h3>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Donor Resources</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-newsletter">
-                        <h3>Stay Updated</h3>
-                        <p>Subscribe to our newsletter for the latest updates on organ donation and blockchain technology.</p>
-                        <form class="newsletter-form">
-                            <div class="form-group">
-                                <input type="email" placeholder="Your Email Address" required>
-                                <button type="submit" class="btn">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
-                        <p class="newsletter-note">We respect your privacy and will never share your information.</p>
                     </div>
                 </div>
             </div>
