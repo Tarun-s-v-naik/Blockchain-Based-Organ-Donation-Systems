@@ -187,23 +187,7 @@
                 document.getElementById('confirm-password-error').style.display = 'none';
             }
             
-            // Security question validation
-            const securityQuestion = document.getElementById('security-question');
-            if (securityQuestion.value === '') {
-                document.getElementById('security-question-error').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('security-question-error').style.display = 'none';
-            }
-            
-            // Security answer validation
-            const securityAnswer = document.getElementById('security-answer');
-            if (securityAnswer.value.trim() === '') {
-                document.getElementById('security-answer-error').style.display = 'block';
-                isValid = false;
-            } else {
-                document.getElementById('security-answer-error').style.display = 'none';
-            }
+           
             
             // If form is valid, submit
             if (isValid) {
@@ -281,11 +265,4 @@
                 }
             }
             e.target.value = value;
-        });
-        
-        // Social login buttons (placeholders)
-        document.querySelectorAll('.social-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Social login functionality would be implemented here.');
-            });
         });

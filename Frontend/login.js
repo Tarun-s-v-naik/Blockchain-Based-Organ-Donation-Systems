@@ -23,8 +23,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   setTimeout(() => {
     loginButton.innerHTML = originalText;
     loginButton.disabled = false;
-    alert('Login successful (demo)');
-  }, 1500);
+
+    // Redirect to index.html after successful login
+    window.location.href = "index.html";
+}, 1500);
+
 });
 
 function showError(inputId, message) {

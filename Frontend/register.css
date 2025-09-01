@@ -295,51 +295,7 @@ body::before {
     font-size: 0.9rem;
 }
 
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
 
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background-color: white;
-    cursor: pointer;
-    transition: var(--transition);
-    flex: 1;
-}
-
-.social-btn:hover {
-    background-color: var(--background-light);
-    transform: translateY(-2px);
-}
-
-.social-btn i {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-.social-btn.facebook i {
-    color: #1877f2;
-}
-
-.social-btn.google i {
-    color: #ea4335;
-}
-
-.social-btn.github i {
-    color: #333;
-}
-
-.social-btn span {
-    font-weight: 500;
-    color: var(--text-dark);
-}
 
 .strength-meter {
     height: 5px;
